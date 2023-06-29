@@ -15,8 +15,8 @@
                 require "sistem/createQuiz/createQuiz.php";
                 break;
 
-            case '/Prueba_tecnica/Quiz/CopyQuiz':
-                require "sistem/quizName/quizName.php";
+            case (strpos($route, '/Prueba_tecnica/Quiz/CopyQuiz') === 0 && strpos($query, 'quiz=') !== false):
+                require "sistem/copyLink/copyLink.php";
                 break;
             default:
                 http_response_code(404);

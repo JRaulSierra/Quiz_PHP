@@ -38,7 +38,7 @@
       $allAnswers = true;
     }
     if ($questionCount >= 5) {
-      header("Location: /Prueba_tecnica/Quiz/CopyQuiz");
+      header("Location: /Prueba_tecnica/Quiz/CopyQuiz?quiz=".$quizCode);
       exit(); // Asegurarse de que se detenga la ejecución después de la redirección
     }
   }
