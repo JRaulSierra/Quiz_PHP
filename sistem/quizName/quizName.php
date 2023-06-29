@@ -1,10 +1,11 @@
 <?php 
+    $headerRoute = 'templates\headerCreate.php';
     $alert = '';
     if (!empty($_POST)) {
         if (empty($_POST['name'])) {
           $alert = '<h1>ERROR</h1>'; 
         }else{
-            include "../../connection.php";
+            require_once('connection.php');;
             $name = $_POST['name'];
             $codigoUnico = md5($name);
 
@@ -19,7 +20,7 @@
             }else{
                 $query_add = mysqli_query($connection,"INSERT INTO quizes(code,name) VALUES('$codigoUnico','$name')");
                 if ($query_add) {
-                    header("Location: http://localhost/Prueba_tecnica/Quiz/sistem/createQuiz/createQuiz.php"); 
+                    header("Location: /Prueba_tecnica/Quiz/createNewQuestion"); 
                 }else{
                   $alert = '<h1>ERROR al crear nuevo questionario</h1>';  
                 }
@@ -37,7 +38,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <?php include "../../templates/headerCreate.php" ?>
+  <?php include $headerRoute ?>
   <div><?php echo isset($alert) ? $alert : ''?></div>
   <div class="container">
     <h1>Ingrese el nombre de su nuevo questionario</h1>
