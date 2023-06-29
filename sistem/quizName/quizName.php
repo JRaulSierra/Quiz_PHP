@@ -1,7 +1,8 @@
 <?php 
+    $alert = '';
     if (!empty($_POST)) {
         if (empty($_POST['name'])) {
-            echo '<h1>ERROR</h1>'; 
+          $alert = '<h1>ERROR</h1>'; 
         }else{
             include "../../connection.php";
             $name = $_POST['name'];
@@ -11,13 +12,16 @@
             $result = mysqli_fetch_array($query);
 
             if ($result > 0) {
-                echo '<h1>ERROR</h1>'; 
+                $alert = '
+                <div class="alert alert-danger" role="alert">
+                  Ya existe ese nombre de cuestionario
+                </div>'; 
             }else{
                 $query_add = mysqli_query($connection,"INSERT INTO quizes(code,name) VALUES('$codigoUnico','$name')");
                 if ($query_add) {
-                    header("Location: http://localhost/Prueba_tecnica/Quiz/templates/createQuiz/createQuiz.php"); 
+                    header("Location: http://localhost/Prueba_tecnica/Quiz/sistem/createQuiz/createQuiz.php"); 
                 }else{
-                    echo '<h1>ERROR</h1>';  
+                  $alert = '<h1>ERROR al crear nuevo questionario</h1>';  
                 }
             }
         }
@@ -34,7 +38,7 @@
 </head>
 <body>
   <?php include "../../templates/headerCreate.php" ?>
-
+  <div><?php echo isset($alert) ? $alert : ''?></div>
   <div class="container">
     <h1>Ingrese el nombre de su nuevo questionario</h1>
     <form method="POST">
