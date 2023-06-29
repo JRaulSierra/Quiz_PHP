@@ -18,6 +18,14 @@
             case (strpos($route, '/Prueba_tecnica/Quiz/CopyQuiz') === 0 && strpos($query, 'quiz=') !== false):
                 require "sistem/copyLink/copyLink.php";
                 break;
+            
+            case (strpos($route, '/Prueba_tecnica/Quiz/') === 0 && strpos($query, 'quiz=') !== false):
+                require "sistem/showQuiz/showQuiz.php";
+                break;
+
+            case '/Prueba_tecnica/Quiz/completeQuiz':
+                require "sistem/quizComplete/quizComplete.php";
+                break;
             default:
                 http_response_code(404);
                 break;
