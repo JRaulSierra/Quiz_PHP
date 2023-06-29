@@ -3,7 +3,7 @@
         if (empty($_POST['name'])) {
             echo '<h1>ERROR</h1>'; 
         }else{
-            include "../../connection.php";
+            require_once('connection.php');
             $name = $_POST['name'];
             $codigoUnico = md5($name);
 
@@ -70,7 +70,7 @@
         type="button" 
         class="btn btn-secondary" 
         id="agregarPregunta" 
-        onclick="location.href='createQuiz.php'">Agregar otra pregunta</button>
+        onclick="location.href='/Prueba_tecnica/Quiz/createNewQuestion'">Agregar otra pregunta</button>
     </form>
   </div>
 

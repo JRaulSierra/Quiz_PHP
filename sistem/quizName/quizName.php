@@ -5,7 +5,7 @@
         if (empty($_POST['name'])) {
           $alert = '<h1>ERROR</h1>'; 
         }else{
-            require_once('connection.php');;
+            require_once('connection.php');
             $name = $_POST['name'];
             $codigoUnico = md5($name);
 
@@ -20,7 +20,7 @@
             }else{
                 $query_add = mysqli_query($connection,"INSERT INTO quizes(code,name) VALUES('$codigoUnico','$name')");
                 if ($query_add) {
-                    header("Location: /Prueba_tecnica/Quiz/createNewQuestion"); 
+                    header("Location: /Prueba_tecnica/Quiz/createNewQuestion?quiz=".$codigoUnico); 
                 }else{
                   $alert = '<h1>ERROR al crear nuevo questionario</h1>';  
                 }
