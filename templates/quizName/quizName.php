@@ -9,14 +9,15 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Ingrese el nombre del nuevo questionario</a>
+    <a class="navbar-brand" href="#">Creación de Cuestionario</a>
   </nav>
 
   <div class="container">
-    <form method="POST" action="guardar_nombre.php">
+    <h1>Ingrese el nombre de su nuevo questionario</h1>
+    <form method="POST" action="..\..\controllers\quizName\saveQuizName.php">
       <div class="form-group">
         <label for="pregunta">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required>
+        <input type="text" class="form-control" id="name" name="name" required>
       </div>
 
       <button type="submit" class="btn btn-primary">Crear</button>

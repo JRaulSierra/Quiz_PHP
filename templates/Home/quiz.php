@@ -15,7 +15,9 @@
   <div class="container mt-4">
     <h1>Bienvenido, ¿desea crear un cuestionario?</h1>
 
-    <button class="btn btn-primary" onclick="location.href='createQuiz.php'">Crear Cuestionario</button>
+    <button 
+      class="btn btn-primary" 
+      onclick="location.href='../quizName/quizName.php'">Crear Cuestionario</button>
   </div>
 
 </body>
